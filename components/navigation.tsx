@@ -39,7 +39,7 @@ export function Navigation() {
                  alignItems: 'center',
                  gap: '0.5rem'
                }}>
-              NeuroStaff
+              Volingu
                </Link>
 
         {/* Navigation Links */}
@@ -269,28 +269,30 @@ export function Navigation() {
                    БЛОГ
                  </Link>
 
-                 <Link href="/contact" style={{ 
-                   background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
-                   color: 'white', 
-                   padding: '0.75rem 1.5rem', 
-                   borderRadius: '0.75rem',
-                   textDecoration: 'none',
-                   fontSize: '1rem',
-                   fontWeight: '600',
-                   display: 'flex',
-                   alignItems: 'center',
-                   gap: '0.5rem',
-                   transition: 'all 0.2s',
-                   boxShadow: '0 4px 15px rgba(102, 126, 234, 0.3)'
-                 }}
-                 onMouseEnter={(e) => {
-                   e.currentTarget.style.transform = 'translateY(-2px)'
-                   e.currentTarget.style.boxShadow = '0 8px 25px rgba(102, 126, 234, 0.4)'
-                 }}
-                 onMouseLeave={(e) => {
-                   e.currentTarget.style.transform = 'translateY(0)'
-                   e.currentTarget.style.boxShadow = '0 4px 15px rgba(102, 126, 234, 0.3)'
-                 }}>
+                <Link href="/contact" style={{ 
+                  background: 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)', 
+                  color: 'white', 
+                  padding: '0.75rem 1.5rem', 
+                  borderRadius: '0.75rem',
+                  textDecoration: 'none',
+                  fontSize: '1rem',
+                  fontWeight: '600',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  transition: 'all 0.2s',
+                  boxShadow: '0 4px 15px rgba(34, 197, 94, 0.3)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #059669 0%, #047857 100%)'
+                  e.currentTarget.style.transform = 'translateY(-2px)'
+                  e.currentTarget.style.boxShadow = '0 8px 25px rgba(34, 197, 94, 0.4)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)'
+                  e.currentTarget.style.transform = 'translateY(0)'
+                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(34, 197, 94, 0.3)'
+                }}>
                    Получить консультацию
                  </Link>
         </div>
@@ -310,6 +312,7 @@ export function Navigation() {
           onClick={() => setIsServicesOpen(false)}
         />
       )}
+
     </nav>
   )
 }

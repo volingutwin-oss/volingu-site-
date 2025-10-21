@@ -3,17 +3,18 @@
 import { Navigation } from "@/components/navigation"
 import { FadeIn, SlideInLeft, SlideInUp } from "@/components/scroll-animations"
 import { ServiceCard } from "@/components/service-card"
+import { Footer } from "@/components/footer"
 import { CampaignCard } from "@/components/campaign-card"
 
 export default function EmailMarketingPage() {
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', margin: 0, padding: 0 }}>
+    <div style={{ fontFamily: 'Montserrat, sans-serif', margin: 0, padding: 0 }}>
       <Navigation />
 
       {/* Hero Section */}
       <section style={{ 
         padding: '8rem 1rem 6rem 1rem', 
-        background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)', 
+        background: 'linear-gradient(135deg, #667eea 0%, #5a67d8 25%, #3182ce 50%, #2b6cb0 75%, #2c5282 100%)', 
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden'
@@ -123,7 +124,7 @@ export default function EmailMarketingPage() {
                 fontWeight: 'bold',
                 color: '#1f2937',
                 marginBottom: '1rem',
-                background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+                background: 'linear-gradient(135deg, #667eea 0%, #5a67d8 25%, #3182ce 50%, #2b6cb0 75%, #2c5282 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text'
@@ -138,45 +139,45 @@ export default function EmailMarketingPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
             <ServiceCard
-              icon="🎯"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>}
               title="Персонализация"
               description="Каждое письмо адаптируется под интересы и поведение конкретного клиента"
-              gradient="linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)"
+              gradient="linear-gradient(135deg, #667eea 0%, #5a67d8 25%, #3182ce 50%, #2b6cb0 75%, #2c5282 100%)"
               delay={0}
             />
             <ServiceCard
-              icon="⏰"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm4.2 14.2L11 13V7h1.5v5.2l4.5 2.7-.8 1.3z"/></svg>}
               title="Автоматизация"
               description="Отправка писем по триггерам: день рождения, покупка, отказ от корзины"
-              gradient="linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)"
+              gradient="linear-gradient(135deg, #667eea 0%, #5a67d8 25%, #3182ce 50%, #2b6cb0 75%, #2c5282 100%)"
               delay={100}
             />
             <ServiceCard
-              icon="📈"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>}
               title="A/B тестирование"
               description="Автоматическое тестирование разных версий писем для максимальной конверсии"
-              gradient="linear-gradient(135deg, #10b981 0%, #059669 100%)"
+              gradient="linear-gradient(135deg, #667eea 0%, #5a67d8 25%, #3182ce 50%, #2b6cb0 75%, #2c5282 100%)"
               delay={200}
             />
             <ServiceCard
-              icon="📊"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>}
               title="Аналитика"
               description="Детальная статистика по открытиям, кликам и конверсии в продажи"
-              gradient="linear-gradient(135deg, #f59e0b 0%, #d97706 100%)"
+              gradient="linear-gradient(135deg, #667eea 0%, #5a67d8 25%, #3182ce 50%, #2b6cb0 75%, #2c5282 100%)"
               delay={300}
             />
             <ServiceCard
-              icon="🎨"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>}
               title="Красивый дизайн"
               description="Адаптивные шаблоны писем, которые отлично выглядят на всех устройствах"
-              gradient="linear-gradient(135deg, #ef4444 0%, #dc2626 100%)"
+              gradient="linear-gradient(135deg, #667eea 0%, #5a67d8 25%, #3182ce 50%, #2b6cb0 75%, #2c5282 100%)"
               delay={400}
             />
             <ServiceCard
-              icon="🔄"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/></svg>}
               title="Интеграции"
               description="Подключение к CRM, интернет-магазинам и другим сервисам"
-              gradient="linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)"
+              gradient="linear-gradient(135deg, #667eea 0%, #5a67d8 25%, #3182ce 50%, #2b6cb0 75%, #2c5282 100%)"
               delay={500}
             />
           </div>
@@ -193,7 +194,7 @@ export default function EmailMarketingPage() {
                 fontWeight: 'bold',
                 color: '#1f2937',
                 marginBottom: '1rem',
-                background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+                background: 'linear-gradient(135deg, #667eea 0%, #5a67d8 25%, #3182ce 50%, #2b6cb0 75%, #2c5282 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text'
@@ -250,111 +251,34 @@ export default function EmailMarketingPage() {
             />
           </div>
         </div>
-      </section>
 
-      {/* Pricing */}
-      <section style={{ padding: '6rem 1rem', backgroundColor: '#f8fafc' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <FadeIn >
-            <h2 style={{
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontWeight: 'bold',
-              color: '#1f2937',
-              marginBottom: '1rem',
-              background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>
-              Стоимость автоматических рассылок
-            </h2>
-            <p style={{ fontSize: '1.25rem', color: '#6b7280', marginBottom: '3rem' }}>
-              От 8 000 рублей в месяц за неограниченное количество писем
-            </p>
-          </FadeIn>
-          
-          <SlideInUp >
-            <div style={{
-              backgroundColor: 'white',
-              borderRadius: '1.5rem',
-              padding: '3rem',
-              border: '1px solid #e5e7eb',
-              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-            }}>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2rem', color: '#111827' }}>
-                Что входит в стоимость:
-              </h3>
-              <div style={{ textAlign: 'left', maxWidth: '400px', margin: '0 auto' }}>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>Настройка рассылок</span>
-                </div>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>Неограниченные письма</span>
-                </div>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>Персонализация контента</span>
-                </div>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>A/B тестирование</span>
-                </div>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>Аналитика и отчеты</span>
-                </div>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>Техническая поддержка 24/7</span>
-                </div>
-              </div>
-            </div>
-          </SlideInUp>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section style={{ 
-        padding: '6rem 1rem', 
-        background: 'linear-gradient(135deg, #1f2937 0%, #111827 100%)', 
-        textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div style={{
-          position: 'absolute',
-          top: '-50%',
-          right: '-20%',
-          width: '40%',
-          height: '200%',
-          background: 'radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%)',
-          transform: 'rotate(15deg)'
-        }}></div>
-        
-        <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
-          <FadeIn >
-            <h2 style={{ 
-              fontSize: 'clamp(2rem, 4vw, 3rem)', 
-              fontWeight: 'bold', 
-              color: 'white', 
-              marginBottom: '1.5rem' 
-            }}>
-              Готовы увеличить продажи через email?
-            </h2>
-          </FadeIn>
-          
-          <FadeIn >
-            <p style={{ 
-              fontSize: '1.25rem', 
-              color: 'rgba(255, 255, 255, 0.8)', 
-              marginBottom: '2rem',
-              lineHeight: '1.6'
-            }}>
-              Получите бесплатную консультацию и узнайте, как автоматические рассылки увеличат ваши продажи
-            </p>
-          </FadeIn>
+        {/* CTA Section */}
+        <div style={{ 
+          padding: '8rem 1rem 6rem 1rem', 
+          textAlign: 'center'
+        }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <FadeIn >
+              <h2 style={{ 
+                fontSize: 'clamp(2rem, 4vw, 3rem)', 
+                fontWeight: 'bold', 
+                color: '#1f2937', 
+                marginBottom: '1.5rem' 
+              }}>
+                Готовы увеличить продажи через email?
+              </h2>
+            </FadeIn>
+            
+            <FadeIn >
+              <p style={{ 
+                fontSize: '1.25rem', 
+                color: '#6b7280', 
+                marginBottom: '2rem',
+                lineHeight: '1.6'
+              }}>
+                Получите бесплатную консультацию и узнайте, как автоматические рассылки увеличат ваши продажи
+              </p>
+            </FadeIn>
           
           <FadeIn >
             <a href="/contact" style={{
@@ -375,25 +299,11 @@ export default function EmailMarketingPage() {
               Заказать консультацию
             </a>
           </FadeIn>
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer style={{ backgroundColor: '#111827', color: 'white', padding: '4rem 1rem 2rem 1rem', textAlign: 'center' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <FadeIn >
-            <div style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>NeuroStaff</div>
-          </FadeIn>
-          <FadeIn >
-            <p style={{ color: '#9ca3af', marginBottom: '2rem', fontSize: '1.125rem' }}>Нейросотрудники для вашего бизнеса</p>
-          </FadeIn>
-          <FadeIn >
-            <p style={{ color: '#6b7280', fontSize: '0.875rem', borderTop: '1px solid #374151', paddingTop: '1rem' }}>
-              © 2024 NeuroStaff. Все права защищены.
-            </p>
-          </FadeIn>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

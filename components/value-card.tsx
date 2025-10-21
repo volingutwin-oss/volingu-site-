@@ -19,7 +19,7 @@ export function ValueCard({ title, description, delay }: ValueCardProps) {
         border: '1px solid #e5e7eb',
         transition: 'all 0.3s',
         cursor: 'pointer',
-        height: '200px',
+        height: '280px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',

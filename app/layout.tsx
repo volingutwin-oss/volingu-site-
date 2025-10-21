@@ -1,16 +1,24 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Suspense } from "react"
+import { Montserrat } from "next/font/google"
+import ChatWidget from "@/components/chat-widget"
 import "./globals.css"
 
+const montserrat = Montserrat({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-montserrat",
+})
+
 export const metadata: Metadata = {
-  title: "NeuroStaff - Нейросотрудники для вашего бизнеса | AI-ассистенты 24/7",
+  title: "Volingu - Нейросотрудники для вашего бизнеса | AI-ассистенты 24/7",
   description:
     "Создаем умных AI-ассистентов на базе ChatGPT для продаж, поддержки, HR и консультаций. Работают 24/7 без отпусков. Увеличьте продажи на 85% и сократите расходы на персонал.",
   keywords: "AI ассистент, нейросотрудник, ChatGPT для бизнеса, автоматизация продаж, чат-бот, искусственный интеллект",
   generator: "v0.app",
   openGraph: {
-    title: "NeuroStaff - Нейросотрудники для вашего бизнеса",
+    title: "Volingu - Нейросотрудники для вашего бизнеса",
     description: "AI-ассистенты, которые работают 24/7 и увеличивают продажи на 85%",
     type: "website",
     locale: "ru_RU",
@@ -33,8 +41,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className="font-sans antialiased" style={{ paddingTop: '80px' }}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+      </head>
+      <body className={`${montserrat.variable} font-sans antialiased`} style={{ paddingTop: '80px' }}>
         <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+        <ChatWidget />
       </body>
     </html>
   )

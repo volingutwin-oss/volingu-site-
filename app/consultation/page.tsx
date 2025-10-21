@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
+import { Footer } from "@/components/footer"
 import { ContactForm } from "@/components/contact-form"
 import { 
   Phone, 
@@ -68,9 +69,9 @@ export default function ConsultationPage() {
                       <Phone className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground">Телефон</h3>
-                      <p className="text-primary font-medium">+7 (495) 123-45-67</p>
-                      <p className="text-sm text-muted-foreground">Пн-Пт с 9:00 до 18:00</p>
+                      <h3 className="font-semibold text-foreground">Время работы</h3>
+                      <p className="text-primary font-medium">Пн-Пт с 9:00 до 18:00</p>
+                      <p className="text-sm text-muted-foreground">Московское время</p>
                     </div>
                   </div>
 
@@ -80,21 +81,11 @@ export default function ConsultationPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground">Email</h3>
-                      <p className="text-accent font-medium">hello@neurostaff.ru</p>
+                      <p className="text-accent font-medium">volingutwin@gmail.com</p>
                       <p className="text-sm text-muted-foreground">Ответим в течение часа</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Офис</h3>
-                      <p className="text-foreground">Москва, ул. Тверская, 1</p>
-                      <p className="text-sm text-muted-foreground">Встречи по записи</p>
-                    </div>
-                  </div>
 
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -194,6 +185,8 @@ export default function ConsultationPage() {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>
   )
 }

@@ -27,14 +27,14 @@ import {
 const contactMethods = [
   {
     icon: Phone,
-    title: "Телефон",
-    value: "+7 (495) 123-45-67",
-    description: "Пн-Пт с 9:00 до 18:00",
+    title: "Время работы",
+    value: "Пн-Пт с 9:00 до 18:00",
+    description: "Московское время",
   },
   {
     icon: Mail,
     title: "Email",
-    value: "hello@neurostaff.ru",
+    value: "volingutwin@gmail.com",
     description: "Ответим в течение часа",
   },
   {

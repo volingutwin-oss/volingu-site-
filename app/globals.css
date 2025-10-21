@@ -1,26 +1,70 @@
 /* Простые стили для сайта */
+:root {
+  --font-montserrat: 'Montserrat', sans-serif;
+}
+
 * {
   box-sizing: border-box;
+}
+
+/* Оптимизация производительности */
+html {
+  scroll-behavior: smooth;
+  /* Улучшенный скроллинг на мобильных */
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Montserrat', var(--font-montserrat), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Оптимизация рендеринга */
+  text-rendering: optimizeLegibility;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Оптимизация для элементов с трансформациями */
+img, video, iframe {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
-/* Анимации */
+/* Контейнеры с overflow для плавного скролла */
+div[style*="overflow"] {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Улучшение производительности для градиентов */
+[style*="gradient"] {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Улучшение производительности анимаций */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Анимации (оптимизировано с GPU acceleration) */
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%, 100% {
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale3d(1.05, 1.05, 1);
+    opacity: 0.8;
+  }
 }
 
 @keyframes pulseGlow {
@@ -28,10 +72,103 @@ html {
   50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
 }
 
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0px, 0) rotate(0deg); }
+  25% { transform: translate3d(0, -10px, 0) rotate(1deg); }
+  50% { transform: translate3d(0, -5px, 0) rotate(0deg); }
+  75% { transform: translate3d(0, -15px, 0) rotate(-1deg); }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -5px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 .animate-pulse {
   animation: pulse 2s ease-in-out infinite;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 
 .animate-pulse-glow {
   animation: pulseGlow 2s ease-in-out infinite;
+  will-change: box-shadow;
+}
+
+/* Audio Player Styles */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.slider::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #3b82f6;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Calculator Slider Styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(16, 185, 129, 0.4);
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(16, 185, 129, 0.4);
 }

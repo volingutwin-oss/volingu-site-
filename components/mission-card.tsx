@@ -3,14 +3,13 @@
 import { SlideInUp } from "./scroll-animations";
 
 interface MissionCardProps {
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
-  gradient: string;
   delay: number;
 }
 
-export function MissionCard({ icon, title, description, gradient, delay }: MissionCardProps) {
+export function MissionCard({ icon, title, description, delay }: MissionCardProps) {
   return (
     <SlideInUp delay={delay}>
       <div style={{
@@ -38,28 +37,16 @@ export function MissionCard({ icon, title, description, gradient, delay }: Missi
         <div style={{
           width: '4rem',
           height: '4rem',
-          background: gradient,
+          background: 'linear-gradient(135deg, #667eea 0%, #5a67d8 25%, #3182ce 50%, #2b6cb0 75%, #2c5282 100%)',
           borderRadius: '1rem',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           marginBottom: '1.5rem',
-          fontSize: '1.5rem',
-          color: 'white',
           minWidth: '4rem',
           minHeight: '4rem'
         }}>
-          <span style={{
-            fontSize: '1.5rem',
-            lineHeight: '1',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            width: '1.5rem',
-            height: '1.5rem'
-          }}>
-            {icon}
-          </span>
+          {icon}
         </div>
         <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#1f2937', marginBottom: '0.75rem' }}>
           {title}

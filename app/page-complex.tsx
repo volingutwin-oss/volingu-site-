@@ -1,21 +1,9 @@
-import { Navigation } from "@/components/navigation"
-import { HeroSection } from "@/components/hero-section"
-import { ServicesSection } from "@/components/services-section"
-import { DemoSection } from "@/components/demo-section"
-import { CaseStudiesSection } from "@/components/case-studies-section"
-import { ContactSection } from "@/components/contact-section"
-import { Footer } from "@/components/footer"
-
-export default function HomePage() {
+// Сложная версия главной страницы
+export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Navigation />
-      <HeroSection />
-      <ServicesSection />
-      <DemoSection />
-      <CaseStudiesSection />
-      <ContactSection />
-      <Footer />
-    </main>
+    <div>
+      <h1>Volingu - Сложная версия</h1>
+      <p>Полнофункциональный сайт с множеством компонентов</p>
+    </div>
   )
 }

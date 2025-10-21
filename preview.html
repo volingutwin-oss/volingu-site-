@@ -3,328 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NeuroStaff - Превью сайта</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Volingu - Превью</title>
     <style>
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
         }
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
-        .animate-float { animation: float 3s ease-in-out infinite; }
-        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
-        .gradient-text {
-            background: linear-gradient(to right, #3b82f6, #10b981);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <a href="/" class="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity">
-                        NeuroStaff
-                    </a>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#services" class="text-gray-700 hover:text-blue-600 transition-colors">Услуги</a>
-                        <a href="#cases" class="text-gray-700 hover:text-blue-600 transition-colors">Кейсы</a>
-                        <a href="#demo" class="text-gray-700 hover:text-blue-600 transition-colors">Демо</a>
-                        <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors">Контакты</a>
-                    </div>
-                </div>
-                <div class="hidden md:block">
-                    <button class="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors">
-                        Получить консультацию
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        <div class="absolute inset-0 bg-gradient-to-br from-gray-50 via-gray-50 to-gray-100"></div>
-        <div class="absolute inset-0 overflow-hidden">
-            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-pulse"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
-        </div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <!-- Badge -->
-            <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-sm font-medium mb-8 animate-float">
-                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                Нейросотрудники для вашего бизнеса
-            </div>
-
-            <!-- Main heading -->
-            <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-balance mb-6 px-4">
-                <span class="gradient-text">AI-ассистенты</span>
-                <br />
-                <span class="text-gray-900">которые работают</span>
-                <br />
-                <span class="text-gray-900">24/7 без отпусков</span>
-            </h1>
-
-            <!-- Subheading -->
-            <p class="text-lg sm:text-xl md:text-2xl text-gray-600 text-balance max-w-4xl mx-auto mb-12 px-4">
-                Создаем умных нейросотрудников на базе ChatGPT, обученных на знаниях вашей компании. Они работают как менеджеры по продажам, специалисты поддержки, HR-менеджеры и консультанты.
-            </p>
-
-            <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 px-4">
-                <button class="bg-teal-600 text-white hover:bg-teal-700 text-lg px-6 sm:px-8 py-4 w-full sm:w-auto animate-pulse-glow rounded-lg flex items-center justify-center">
-                    Получить консультацию
-                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                    </svg>
-                </button>
-                <button class="text-lg px-6 sm:px-8 py-4 border border-blue-300 hover:bg-blue-50 bg-transparent w-full sm:w-auto rounded-lg flex items-center justify-center">
-                    <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
-                    </svg>
-                    Смотреть демо
-                </button>
-            </div>
-
-            <!-- Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto px-4">
-                <div class="text-center">
-                    <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-3 animate-float">
-                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
-                        </svg>
-                    </div>
-                    <div class="text-2xl font-bold text-gray-900">500+</div>
-                    <div class="text-sm text-gray-600">Довольных клиентов</div>
-                </div>
-                <div class="text-center">
-                    <div class="flex items-center justify-center w-12 h-12 bg-teal-100 rounded-lg mx-auto mb-3 animate-float" style="animation-delay: 0.5s;">
-                        <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <div class="text-2xl font-bold text-gray-900">24/7</div>
-                    <div class="text-sm text-gray-600">Работа без перерывов</div>
-                </div>
-                <div class="text-center">
-                    <div class="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mx-auto mb-3 animate-float" style="animation-delay: 1s;">
-                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                        </svg>
-                    </div>
-                    <div class="text-2xl font-bold text-gray-900">85%</div>
-                    <div class="text-sm text-gray-600">Рост продаж</div>
-                </div>
-                <div class="text-center">
-                    <div class="flex items-center justify-center w-12 h-12 bg-teal-100 rounded-lg mx-auto mb-3 animate-float" style="animation-delay: 1.5s;">
-                        <svg class="w-6 h-6 text-teal-600" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <div class="text-2xl font-bold text-gray-900">1000+</div>
-                    <div class="text-sm text-gray-600">Нейросотрудников</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-24 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold text-balance mb-6">
-                    <span class="gradient-text">AI-решения</span>
-                    <br />
-                    <span class="text-gray-900">для вашего бизнеса</span>
-                </h2>
-                <p class="text-xl text-gray-600 text-balance max-w-3xl mx-auto">
-                    Комплексные решения для автоматизации коммуникаций: от голосовых ботов до единой панели управления
-                </p>
-            </div>
-
-            <!-- Services Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-                <!-- Service 1 -->
-                <div class="bg-white/80 backdrop-blur-sm border border-gray-200 hover:bg-white/90 transition-all duration-300 group shadow-lg hover:shadow-xl hover:-translate-y-1 rounded-lg p-6">
-                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto bg-gradient-to-br from-teal-200 to-teal-100 border border-teal-200">
-                        <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl text-gray-900 group-hover:text-blue-600 transition-colors text-center mb-4">Голосовые боты</h3>
-                    <p class="text-gray-600 text-center leading-relaxed mb-4">Быстрые, точные, всегда на связи. Обрабатывают звонки 24/7 с естественным голосом</p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            Обработка входящих звонков
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            Голосовое распознавание
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            Естественная речь
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            Интеграция с CRM
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="bg-white/80 backdrop-blur-sm border border-gray-200 hover:bg-white/90 transition-all duration-300 group shadow-lg hover:shadow-xl hover:-translate-y-1 rounded-lg p-6">
-                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto bg-gradient-to-br from-blue-200 to-blue-100 border border-blue-200">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl text-gray-900 group-hover:text-blue-600 transition-colors text-center mb-4">Боты для мессенджеров</h3>
-                    <p class="text-gray-600 text-center leading-relaxed mb-4">Удобные, эффективные, всегда онлайн. Работают в Telegram, WhatsApp, Viber</p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            Telegram боты
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            WhatsApp интеграция
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            Viber поддержка
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            Мгновенные ответы
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="bg-white/80 backdrop-blur-sm border border-gray-200 hover:bg-white/90 transition-all duration-300 group shadow-lg hover:shadow-xl hover:-translate-y-1 rounded-lg p-6">
-                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 mx-auto bg-gradient-to-br from-teal-200 to-teal-100 border border-teal-200">
-                        <svg class="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl text-gray-900 group-hover:text-blue-600 transition-colors text-center mb-4">Умные рассылки</h3>
-                    <p class="text-gray-600 text-center leading-relaxed mb-4">Персонализированные email-кампании с AI-оптимизацией контента и времени отправки</p>
-                    <ul class="space-y-3">
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            Персонализация контента
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            Оптимизация времени
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            A/B тестирование
-                        </li>
-                        <li class="flex items-center text-sm text-gray-600">
-                            <div class="w-2 h-2 bg-teal-500 rounded-full mr-3 flex-shrink-0"></div>
-                            Аналитика эффективности
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Benefits Section -->
-            <div class="text-center mb-12">
-                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Почему выбирают наши AI-решения?</h3>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Современные технологии искусственного интеллекта для максимальной эффективности вашего бизнеса
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">24/7 доступность</h4>
-                    <p class="text-gray-600 text-sm">Работают круглосуточно без выходных, отпусков и больничных</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Мгновенные ответы</h4>
-                    <p class="text-gray-600 text-sm">Отвечают на запросы клиентов за секунды, не заставляя ждать</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Высокое качество</h4>
-                    <p class="text-gray-600 text-sm">Обучены на ваших данных и всегда дают актуальную информацию</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                        </svg>
-                    </div>
-                    <h4 class="text-lg font-semibold text-gray-900 mb-2">Масштабируемость</h4>
-                    <p class="text-gray-600 text-sm">Легко справляются с любым объемом запросов без потери качества</p>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="text-center">
-                <button class="bg-teal-600 text-white hover:bg-teal-700 text-lg px-8 py-4 rounded-lg">
-                    Подобрать AI-решение для вашего бизнеса
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Готовы начать работу с AI?
-            </h2>
-            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                Получите бесплатную консультацию и узнайте, как AI-ассистенты могут помочь вашему бизнесу
-            </p>
-            <button class="bg-teal-600 text-white hover:bg-teal-700 text-lg px-8 py-4 rounded-lg animate-pulse-glow">
-                Получить консультацию
-            </button>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="text-2xl font-bold gradient-text mb-4">NeuroStaff</div>
-                <p class="text-gray-400 mb-4">Нейросотрудники для вашего бизнеса</p>
-                <p class="text-gray-500 text-sm">© 2024 NeuroStaff. Все права защищены.</p>
-            </div>
-        </div>
-    </footer>
+<body>
+    <div class="container">
+        <h1>🚀 Volingu</h1>
+        <p>Нейросотрудники для вашего бизнеса</p>
+        <p>AI-ассистенты работают 24/7 без отпусков</p>
+        <a href="http://localhost:3000" class="btn">Открыть сайт</a>
+    </div>
 </body>
 </html>
-

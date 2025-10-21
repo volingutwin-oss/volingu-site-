@@ -3,17 +3,18 @@
 import { Navigation } from "@/components/navigation"
 import { FadeIn, SlideInLeft, SlideInUp } from "@/components/scroll-animations"
 import { ServiceCard } from "@/components/service-card"
+import { Footer } from "@/components/footer"
 import { WidgetTypeCard } from "@/components/widget-type-card"
 
 export default function WebsiteWidgetsPage() {
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', margin: 0, padding: 0 }}>
+    <div style={{ fontFamily: 'Montserrat, sans-serif', margin: 0, padding: 0 }}>
       <Navigation />
 
       {/* Hero Section */}
       <section style={{ 
         padding: '8rem 1rem 6rem 1rem', 
-        background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)', 
+        background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', 
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden'
@@ -61,7 +62,7 @@ export default function WebsiteWidgetsPage() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '1.5rem',
-                color: '#f59e0b'
+                color: '#10b981'
               }}>
                 🌐
               </div>
@@ -123,7 +124,7 @@ export default function WebsiteWidgetsPage() {
                 fontWeight: 'bold',
                 color: '#1f2937',
                 marginBottom: '1rem',
-                background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text'
@@ -138,23 +139,23 @@ export default function WebsiteWidgetsPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
             <ServiceCard
-              icon="💬"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>}
               title="Онлайн-консультант"
               description="Мгновенные ответы на вопросы посетителей сайта 24/7"
-              gradient="linear-gradient(135deg, #f59e0b 0%, #d97706 100%)"
+              gradient="linear-gradient(135deg, #10b981 0%, #059669 100%)"
               delay={0}
             />
 
             <ServiceCard
-              icon="🎯"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>}
               title="Квалификация лидов"
               description="Автоматически определяет заинтересованность и собирает контакты"
-              gradient="linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)"
+              gradient="linear-gradient(135deg, #10b981 0%, #059669 100%)"
               delay={100}
             />
 
             <ServiceCard
-              icon="🛒"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4V2c0-.55-.45-1-1-1s-1 .45-1 1v2H3c-.55 0-1 .45-1 1s.45 1 1 1h1v10c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V6h1c.55 0 1-.45 1-1s-.45-1-1-1h-2V2c0-.55-.45-1-1-1s-1 .45-1 1v2H7zm2 2h6v8H9V6z"/></svg>}
               title="Продажи в чате"
               description="Помогает выбрать товары и оформляет заказы прямо в виджете"
               gradient="linear-gradient(135deg, #10b981 0%, #059669 100%)"
@@ -162,26 +163,26 @@ export default function WebsiteWidgetsPage() {
             />
 
             <ServiceCard
-              icon="📅"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>}
               title="Запись на услуги"
               description="Автоматически записывает клиентов на консультации и встречи"
-              gradient="linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)"
+              gradient="linear-gradient(135deg, #10b981 0%, #059669 100%)"
               delay={300}
             />
 
             <ServiceCard
-              icon="🎨"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>}
               title="Кастомизация"
               description="Настраивается под дизайн вашего сайта и корпоративный стиль"
-              gradient="linear-gradient(135deg, #ef4444 0%, #dc2626 100%)"
+              gradient="linear-gradient(135deg, #10b981 0%, #059669 100%)"
               delay={400}
             />
 
             <ServiceCard
-              icon="📊"
+              icon={<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>}
               title="Аналитика"
               description="Детальная статистика по диалогам и конверсии в заявки"
-              gradient="linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)"
+              gradient="linear-gradient(135deg, #10b981 0%, #059669 100%)"
               delay={500}
             />
           </div>
@@ -198,7 +199,7 @@ export default function WebsiteWidgetsPage() {
                 fontWeight: 'bold',
                 color: '#1f2937',
                 marginBottom: '1rem',
-                background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text'
@@ -211,7 +212,7 @@ export default function WebsiteWidgetsPage() {
             </div>
           </FadeIn>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem' }}>
             <WidgetTypeCard
               title="Чат-виджет"
               description="Классический виджет в углу экрана для быстрого общения с посетителями"
@@ -253,7 +254,7 @@ export default function WebsiteWidgetsPage() {
                 fontWeight: 'bold',
                 color: '#1f2937',
                 marginBottom: '1rem',
-                background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text'
@@ -272,7 +273,7 @@ export default function WebsiteWidgetsPage() {
                 <div style={{
                   width: '5rem',
                   height: '5rem',
-                  background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+                  background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -281,7 +282,7 @@ export default function WebsiteWidgetsPage() {
                   fontSize: '1.5rem',
                   color: 'white',
                   fontWeight: 'bold',
-                  boxShadow: '0 10px 25px rgba(245, 158, 11, 0.3)'
+                  boxShadow: '0 10px 25px rgba(16, 185, 129, 0.3)'
                 }}>
                   1
                 </div>
@@ -299,7 +300,7 @@ export default function WebsiteWidgetsPage() {
                 <div style={{
                   width: '5rem',
                   height: '5rem',
-                  background: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)',
+                  background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
@@ -308,7 +309,7 @@ export default function WebsiteWidgetsPage() {
                   fontSize: '1.5rem',
                   color: 'white',
                   fontWeight: 'bold',
-                  boxShadow: '0 10px 25px rgba(59, 130, 246, 0.3)'
+                  boxShadow: '0 10px 25px rgba(16, 185, 129, 0.3)'
                 }}>
                   2
                 </div>
@@ -349,111 +350,34 @@ export default function WebsiteWidgetsPage() {
             </SlideInUp>
           </div>
         </div>
-      </section>
 
-      {/* Pricing */}
-      <section style={{ padding: '6rem 1rem', backgroundColor: 'white' }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <FadeIn >
-            <h2 style={{
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              fontWeight: 'bold',
-              color: '#1f2937',
-              marginBottom: '1rem',
-              background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>
-              Стоимость виджетов
-            </h2>
-            <p style={{ fontSize: '1.25rem', color: '#6b7280', marginBottom: '3rem' }}>
-              От 5 000 рублей в месяц за неограниченное количество диалогов
-            </p>
-          </FadeIn>
-          
-          <SlideInUp >
-            <div style={{
-              backgroundColor: 'white',
-              borderRadius: '1.5rem',
-              padding: '3rem',
-              border: '1px solid #e5e7eb',
-              boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)'
-            }}>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '2rem', color: '#111827' }}>
-                Что входит в стоимость:
-              </h3>
-              <div style={{ textAlign: 'left', maxWidth: '400px', margin: '0 auto' }}>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>Настройка и обучение виджета</span>
-                </div>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>Неограниченные диалоги</span>
-                </div>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>Кастомизация под дизайн</span>
-                </div>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>Интеграция с CRM</span>
-                </div>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>Аналитика и отчеты</span>
-                </div>
-                <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-                  <span style={{ color: '#22c55e', marginRight: '0.75rem', fontSize: '1.25rem' }}>✓</span>
-                  <span style={{ color: '#374151', fontSize: '1rem' }}>Техническая поддержка 24/7</span>
-                </div>
-              </div>
-            </div>
-          </SlideInUp>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section style={{ 
-        padding: '6rem 1rem', 
-        background: 'linear-gradient(135deg, #1f2937 0%, #111827 100%)', 
-        textAlign: 'center',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div style={{
-          position: 'absolute',
-          top: '-50%',
-          right: '-20%',
-          width: '40%',
-          height: '200%',
-          background: 'radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%)',
-          transform: 'rotate(15deg)'
-        }}></div>
-        
-        <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
-          <FadeIn >
-            <h2 style={{ 
-              fontSize: 'clamp(2rem, 4vw, 3rem)', 
-              fontWeight: 'bold', 
-              color: 'white', 
-              marginBottom: '1.5rem' 
-            }}>
-              Готовы увеличить конверсию сайта?
-            </h2>
-          </FadeIn>
-          
-          <FadeIn >
-            <p style={{ 
-              fontSize: '1.25rem', 
-              color: 'rgba(255, 255, 255, 0.8)', 
-              marginBottom: '2rem',
-              lineHeight: '1.6'
-            }}>
-              Получите бесплатную консультацию и узнайте, как виджет увеличит ваши продажи
-            </p>
-          </FadeIn>
+        {/* CTA Section */}
+        <div style={{ 
+          padding: '8rem 1rem 6rem 1rem', 
+          textAlign: 'center'
+        }}>
+          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+            <FadeIn >
+              <h2 style={{ 
+                fontSize: 'clamp(2rem, 4vw, 3rem)', 
+                fontWeight: 'bold', 
+                color: '#1f2937', 
+                marginBottom: '1.5rem' 
+              }}>
+                Готовы увеличить конверсию сайта?
+              </h2>
+            </FadeIn>
+            
+            <FadeIn >
+              <p style={{ 
+                fontSize: '1.25rem', 
+                color: '#6b7280', 
+                marginBottom: '2rem',
+                lineHeight: '1.6'
+              }}>
+                Получите бесплатную консультацию и узнайте, как виджет увеличит ваши продажи
+              </p>
+            </FadeIn>
           
           <FadeIn >
             <a href="/contact" style={{
@@ -474,25 +398,11 @@ export default function WebsiteWidgetsPage() {
               Заказать консультацию
             </a>
           </FadeIn>
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer style={{ backgroundColor: '#111827', color: 'white', padding: '4rem 1rem 2rem 1rem', textAlign: 'center' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <FadeIn >
-            <div style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>NeuroStaff</div>
-          </FadeIn>
-          <FadeIn >
-            <p style={{ color: '#9ca3af', marginBottom: '2rem', fontSize: '1.125rem' }}>Нейросотрудники для вашего бизнеса</p>
-          </FadeIn>
-          <FadeIn >
-            <p style={{ color: '#6b7280', fontSize: '0.875rem', borderTop: '1px solid #374151', paddingTop: '1rem' }}>
-              © 2024 NeuroStaff. Все права защищены.
-            </p>
-          </FadeIn>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

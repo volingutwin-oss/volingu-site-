@@ -3,7 +3,7 @@
 import { SlideInLeft } from "@/components/scroll-animations"
 
 interface ServiceCardProps {
-  icon: string
+  icon: React.ReactNode
   title: string
   description: string
   gradient: string

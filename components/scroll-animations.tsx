@@ -24,9 +24,7 @@ export function ScrollAnimation({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            setIsVisible(true)
-          }, delay)
+          setIsVisible(true)
         }
       },
       { threshold: 0.1 }
@@ -41,7 +39,7 @@ export function ScrollAnimation({
         observer.unobserve(ref.current)
       }
     }
-  }, [delay])
+  }, [])
 
   const getTransform = () => {
     if (!isVisible) {
@@ -64,7 +62,7 @@ export function ScrollAnimation({
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
         transition: `all ${duration}s cubic-bezier(0.4, 0, 0.2, 1)`,
-        transitionDelay: `${delay}ms`
+        transitionDelay: isVisible ? `${delay}ms` : '0ms'
       }}
     >
       {children}

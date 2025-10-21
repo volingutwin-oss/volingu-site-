@@ -20,7 +20,7 @@ export function StatCard({ number, label, color, delay }: StatCardProps) {
         boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
         transition: 'all 0.3s',
         cursor: 'pointer',
-        height: '200px',
+        height: '280px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
