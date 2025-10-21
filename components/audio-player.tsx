@@ -1,18 +1,38 @@
 "use client"
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 interface AudioPlayerProps {
   src: string
   title: string
   description?: string
   className?: string
+  duration?: string
 }
 
-export function AudioPlayer({ src, title, description, className = "" }: AudioPlayerProps) {
+export function AudioPlayer({ src, title, description, className = "", duration: durationProp }: AudioPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
+  const [volume, setVolume] = useState(1)
+  const [isDragging, setIsDragging] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
+
+  // Функция для конвертации времени из строки в секунды
+  const parseDuration = (durationStr: string): number => {
+    if (!durationStr) return 0
+    const parts = durationStr.split(':')
+    if (parts.length === 2) {
+      return parseInt(parts[0]) * 60 + parseInt(parts[1])
+    }
+    return 0
+  }
+
+  // Устанавливаем громкость при загрузке
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume
+    }
+  }, [volume])
 
   const togglePlay = () => {
     if (audioRef.current) {
@@ -26,22 +46,45 @@ export function AudioPlayer({ src, title, description, className = "" }: AudioPl
   }
 
   const handleTimeUpdate = () => {
-    if (audioRef.current) {
+    if (audioRef.current && !isDragging) {
       setCurrentTime(audioRef.current.currentTime)
     }
   }
 
   const handleLoadedMetadata = () => {
     if (audioRef.current) {
-      setDuration(audioRef.current.duration)
+      console.log('🎵 Audio loaded, duration:', audioRef.current.duration)
+      // Используем переданную длительность или длительность из аудио
+      const audioDuration = audioRef.current.duration
+      const propDuration = durationProp ? parseDuration(durationProp) : 0
+      setDuration(propDuration || audioDuration)
     }
   }
 
   const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newTime = parseFloat(e.target.value)
+    console.log('🎵 Seeking to:', newTime)
+    setCurrentTime(newTime)
     if (audioRef.current) {
-      const newTime = parseFloat(e.target.value)
       audioRef.current.currentTime = newTime
-      setCurrentTime(newTime)
+    }
+  }
+
+  const handleSeekStart = () => {
+    console.log('🎵 Seek start')
+    setIsDragging(true)
+  }
+
+  const handleSeekEnd = () => {
+    console.log('🎵 Seek end')
+    setIsDragging(false)
+  }
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = parseFloat(e.target.value)
+    setVolume(newVolume)
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume
     }
   }
 
@@ -55,14 +98,16 @@ export function AudioPlayer({ src, title, description, className = "" }: AudioPl
     <div style={{ 
       display: 'flex', 
       alignItems: 'center', 
-      gap: '1rem',
-      padding: '1rem 0'
+      gap: '0.5rem',
+      padding: '0.5rem 0',
+      maxWidth: '100%',
+      overflow: 'hidden'
     }}>
       <button
         onClick={togglePlay}
             style={{
-              width: '48px',
-              height: '48px',
+              width: '36px',
+              height: '36px',
               background: 'linear-gradient(135deg, #3182ce 0%, #2b6cb0 50%, #2c5282 100%)',
               border: 'none',
               borderRadius: '50%',
@@ -71,17 +116,18 @@ export function AudioPlayer({ src, title, description, className = "" }: AudioPl
               alignItems: 'center',
               justifyContent: 'center',
               transition: 'all 0.3s ease',
-              boxShadow: '0 4px 15px rgba(139, 92, 246, 0.3)'
+              boxShadow: 'none',
+              flexShrink: 0
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #7c3aed 0%, #9333ea 100%)'
-              e.currentTarget.style.transform = 'scale(1.1)'
-              e.currentTarget.style.boxShadow = '0 6px 20px rgba(139, 92, 246, 0.4)'
+              e.currentTarget.style.background = 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'
+              e.currentTarget.style.transform = 'scale(1.05)'
+              e.currentTarget.style.boxShadow = 'none'
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'
+              e.currentTarget.style.background = 'linear-gradient(135deg, #3182ce 0%, #2b6cb0 50%, #2c5282 100%)'
               e.currentTarget.style.transform = 'scale(1)'
-              e.currentTarget.style.boxShadow = '0 4px 15px rgba(139, 92, 246, 0.3)'
+              e.currentTarget.style.boxShadow = 'none'
             }}
       >
         {isPlaying ? (
@@ -98,14 +144,16 @@ export function AudioPlayer({ src, title, description, className = "" }: AudioPl
       <div style={{ 
         display: 'flex', 
         alignItems: 'center', 
-        gap: '0.5rem',
-        flex: 1
+        gap: '0.25rem',
+        flex: 1,
+        minWidth: 0
       }}>
         <span style={{ 
-          fontSize: '0.875rem', 
+          fontSize: '0.75rem', 
           color: '#374151',
           fontFamily: 'monospace',
-          minWidth: '35px'
+          minWidth: '28px',
+          flexShrink: 0
         }}>
           {formatTime(currentTime)}
         </span>
@@ -116,22 +164,31 @@ export function AudioPlayer({ src, title, description, className = "" }: AudioPl
           max={duration || 0}
           value={currentTime}
           onChange={handleSeek}
+          onMouseDown={handleSeekStart}
+          onMouseUp={handleSeekEnd}
+          onTouchStart={handleSeekStart}
+          onTouchEnd={handleSeekEnd}
               style={{
                 flex: 1,
                 height: '6px',
-                background: 'linear-gradient(90deg, #3182ce 0%, #e5e7eb 0%)',
+                background: `linear-gradient(90deg, #3182ce ${(currentTime / (duration || 1)) * 100}%, #e5e7eb ${(currentTime / (duration || 1)) * 100}%)`,
                 borderRadius: '3px',
                 outline: 'none',
                 cursor: 'pointer',
-                appearance: 'none'
+                appearance: 'none',
+                WebkitAppearance: 'none',
+                pointerEvents: 'auto',
+                minWidth: '60px'
               }}
+              className="audio-slider"
         />
         
         <span style={{ 
-          fontSize: '0.875rem', 
+          fontSize: '0.75rem', 
           color: '#374151',
           fontFamily: 'monospace',
-          minWidth: '35px'
+          minWidth: '28px',
+          flexShrink: 0
         }}>
           {formatTime(duration)}
         </span>
@@ -141,17 +198,32 @@ export function AudioPlayer({ src, title, description, className = "" }: AudioPl
         display: 'flex', 
         alignItems: 'center', 
         gap: '0.25rem',
-        marginLeft: '0.25rem'
+        marginLeft: '0.25rem',
+        minWidth: '60px',
+        flexShrink: 0
       }}>
         <svg width="12" height="12" fill="#3182ce" viewBox="0 0 24 24">
           <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
         </svg>
-        <div style={{
-          width: '15px',
-          height: '3px',
-          background: 'linear-gradient(90deg, #3182ce 0%, #2b6cb0 100%)',
-          borderRadius: '2px'
-        }}></div>
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          value={volume}
+          onChange={handleVolumeChange}
+          style={{
+            width: '40px',
+            height: '3px',
+            background: `linear-gradient(90deg, #3182ce ${volume * 100}%, #e5e7eb ${volume * 100}%)`,
+            borderRadius: '2px',
+            outline: 'none',
+            cursor: 'pointer',
+            appearance: 'none',
+            WebkitAppearance: 'none'
+          }}
+          className="volume-slider"
+        />
       </div>
 
       <audio

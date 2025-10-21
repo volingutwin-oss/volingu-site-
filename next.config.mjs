@@ -6,9 +6,6 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
-    unoptimized: true,
-  },
   // Оптимизация производительности
   compress: true, // Включить сжатие gzip
   poweredByHeader: false, // Убрать X-Powered-By header

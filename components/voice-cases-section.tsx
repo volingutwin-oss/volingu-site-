@@ -121,6 +121,9 @@ export function VoiceCasesSection() {
                     boxShadow: '0 20px 40px rgba(107, 70, 193, 0.2), 0 0 0 1px rgba(255,255,255,0.1)',
                     backdropFilter: 'blur(10px)',
                     transition: 'all 0.4s ease',
+                    willChange: 'transform, box-shadow',
+                    transform: 'translateZ(0)',
+                    backfaceVisibility: 'hidden',
                     cursor: 'pointer',
                     border: '1px solid rgba(255,255,255,0.2)',
                     height: '320px',
@@ -129,18 +132,19 @@ export function VoiceCasesSection() {
                     overflow: 'hidden'
                   }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-10px) scale(1.02)'
-                e.currentTarget.style.boxShadow = '0 30px 60px rgba(107, 70, 193, 0.3), 0 0 0 1px rgba(255,255,255,0.2)'
+                e.currentTarget.style.transform = 'translateY(-8px)'
+                e.currentTarget.style.boxShadow = '0 25px 50px rgba(107, 70, 193, 0.25), 0 0 0 1px rgba(255,255,255,0.15)'
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0) scale(1)'
+                e.currentTarget.style.transform = 'translateY(0)'
                 e.currentTarget.style.boxShadow = '0 20px 40px rgba(107, 70, 193, 0.2), 0 0 0 1px rgba(255,255,255,0.1)'
               }}>
                 <div style={{
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'flex-start',
-                  marginBottom: '1rem'
+                  marginBottom: '1rem',
+                  paddingRight: '1rem'
                 }}>
                   <h3 style={{ 
                     fontSize: '1.5rem', 
@@ -154,11 +158,12 @@ export function VoiceCasesSection() {
                   <span style={{
                     backgroundColor: 'rgba(107, 70, 193, 0.1)',
                     color: '#6b46c1',
-                    padding: '0.25rem 0.75rem',
+                    padding: '0.2rem 0.5rem',
                     borderRadius: '1rem',
-                    fontSize: '0.75rem',
+                    fontSize: '0.7rem',
                     fontWeight: '600',
                     marginLeft: '1rem',
+                    marginRight: '1rem',
                     whiteSpace: 'nowrap'
                   }}>
                     {voiceCase.industry}
@@ -180,6 +185,7 @@ export function VoiceCasesSection() {
                     title=""
                     description=""
                     className="mb-4"
+                    duration={voiceCase.duration}
                   />
                 </div>
               </div>
