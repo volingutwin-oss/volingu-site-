@@ -311,90 +311,135 @@ input[type="range"]::-moz-range-thumb:hover {
 
 /* Мобильная оптимизация */
 @media (max-width: 768px) {
+  /* Основные стили */
+  * {
+    box-sizing: border-box !important;
+  }
+  
   body {
     font-size: 14px;
     line-height: 1.5;
     padding-top: 60px !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
   }
   
-  /* Адаптивные заголовки */
+  html {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  
+  /* Контейнеры */
+  div[style*="maxWidth: 1200px"] {
+    padding: 0 1rem !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Секции */
+  section {
+    padding: 1.5rem 1rem !important;
+    margin: 0 !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Заголовки */
   h1 {
-    font-size: 1.75rem !important;
+    font-size: 1.5rem !important;
     line-height: 1.2 !important;
-    margin-bottom: 1rem !important;
+    margin-bottom: 0.75rem !important;
+    word-wrap: break-word !important;
   }
   
   h2 {
-    font-size: 1.5rem !important;
+    font-size: 1.25rem !important;
     line-height: 1.3 !important;
-    margin-bottom: 0.75rem !important;
+    margin-bottom: 0.5rem !important;
+    word-wrap: break-word !important;
   }
   
   h3 {
-    font-size: 1.25rem !important;
+    font-size: 1.1rem !important;
     line-height: 1.3 !important;
-  }
-  
-  /* Адаптивные секции */
-  section {
-    padding: 2rem 1rem !important;
-    margin: 0 !important;
+    word-wrap: break-word !important;
   }
   
   /* Навигация */
   nav {
-    padding: 0.75rem 1rem !important;
+    padding: 0.5rem 1rem !important;
+    width: 100% !important;
+    overflow-x: hidden !important;
   }
   
-  /* Адаптивные кнопки */
+  /* Кнопки */
   button, a[style*="padding"] {
-    padding: 0.75rem 1.5rem !important;
+    padding: 0.75rem 1rem !important;
     font-size: 0.9rem !important;
     min-height: 44px !important;
     touch-action: manipulation !important;
+    width: auto !important;
+    max-width: 100% !important;
+    word-wrap: break-word !important;
   }
   
-  /* Адаптивные карточки */
+  /* Сетки и флексбоксы */
   div[style*="gridTemplateColumns"] {
     grid-template-columns: 1fr !important;
     gap: 1rem !important;
+    width: 100% !important;
   }
   
-  /* Адаптивные отступы */
-  div[style*="maxWidth: 1200px"] {
-    padding: 0 1rem !important;
-    max-width: 100% !important;
+  div[style*="display: flex"] {
+    flex-direction: column !important;
+    width: 100% !important;
   }
   
   /* Карточки */
   .card, [class*="card"] {
     margin-bottom: 1rem !important;
     padding: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   /* Формы */
   input, textarea, select {
-    font-size: 16px !important; /* Предотвращает зум на iOS */
+    font-size: 16px !important;
     padding: 0.75rem !important;
     min-height: 44px !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   /* Аудио плеер */
   .audio-player {
     width: 100% !important;
     padding: 0.75rem !important;
+    max-width: 100% !important;
   }
   
   /* Текст */
   p, span, div {
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
+    max-width: 100% !important;
   }
   
   /* Изображения */
   img {
     max-width: 100% !important;
     height: auto !important;
+    width: auto !important;
+  }
+  
+  /* Фоны и градиенты */
+  div[style*="background"] {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
   }
   
   /* Скрыть элементы на мобильных */
@@ -405,6 +450,17 @@ input[type="range"]::-moz-range-thumb:hover {
   /* Показать элементы только на мобильных */
   .mobile-only {
     display: block !important;
+  }
+  
+  /* Исправить горизонтальную прокрутку */
+  .overflow-x-auto {
+    overflow-x: hidden !important;
+  }
+  
+  /* Фиксированные элементы */
+  .fixed, .sticky {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 
@@ -427,5 +483,226 @@ input[type="range"]::-moz-range-thumb:hover {
 @media (min-width: 1025px) {
   .mobile-only {
     display: none !important;
+  }
+}
+
+/* Дополнительные мобильные исправления */
+@media (max-width: 768px) {
+  /* Исправить все элементы с фиксированной шириной */
+  *[style*="width:"] {
+    max-width: 100% !important;
+  }
+  
+  /* Исправить все элементы с фиксированной высотой */
+  *[style*="height:"] {
+    min-height: auto !important;
+  }
+  
+  /* Исправить все элементы с margin */
+  *[style*="margin"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Исправить все элементы с padding */
+  *[style*="padding"] {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Исправить все элементы с position */
+  *[style*="position: absolute"],
+  *[style*="position: fixed"] {
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Исправить все элементы с transform */
+  *[style*="transform"] {
+    transform: none !important;
+  }
+  
+  /* Исправить все элементы с overflow */
+  *[style*="overflow"] {
+    overflow-x: hidden !important;
+  }
+  
+  /* Исправить все элементы с display */
+  *[style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+  }
+  
+  *[style*="display: flex"] {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+  }
+  
+  /* Исправить все элементы с justify-content */
+  *[style*="justify-content"] {
+    justify-content: center !important;
+  }
+  
+  /* Исправить все элементы с align-items */
+  *[style*="align-items"] {
+    align-items: center !important;
+  }
+  
+  /* Исправить все элементы с text-align */
+  *[style*="text-align"] {
+    text-align: center !important;
+  }
+  
+  /* Исправить все элементы с font-size */
+  *[style*="font-size"] {
+    font-size: 0.9rem !important;
+  }
+  
+  /* Исправить все элементы с line-height */
+  *[style*="line-height"] {
+    line-height: 1.4 !important;
+  }
+  
+  /* Исправить все элементы с letter-spacing */
+  *[style*="letter-spacing"] {
+    letter-spacing: normal !important;
+  }
+  
+  /* Исправить все элементы с word-spacing */
+  *[style*="word-spacing"] {
+    word-spacing: normal !important;
+  }
+  
+  /* Исправить все элементы с white-space */
+  *[style*="white-space"] {
+    white-space: normal !important;
+  }
+  
+  /* Исправить все элементы с text-overflow */
+  *[style*="text-overflow"] {
+    text-overflow: ellipsis !important;
+  }
+  
+  /* Исправить все элементы с text-decoration */
+  *[style*="text-decoration"] {
+    text-decoration: none !important;
+  }
+  
+  /* Исправить все элементы с text-transform */
+  *[style*="text-transform"] {
+    text-transform: none !important;
+  }
+  
+  /* Исправить все элементы с font-weight */
+  *[style*="font-weight"] {
+    font-weight: normal !important;
+  }
+  
+  /* Исправить все элементы с font-style */
+  *[style*="font-style"] {
+    font-style: normal !important;
+  }
+  
+  /* Исправить все элементы с color */
+  *[style*="color"] {
+    color: inherit !important;
+  }
+  
+  /* Исправить все элементы с background */
+  *[style*="background"] {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+  
+  /* Исправить все элементы с border */
+  *[style*="border"] {
+    border: none !important;
+  }
+  
+  /* Исправить все элементы с box-shadow */
+  *[style*="box-shadow"] {
+    box-shadow: none !important;
+  }
+  
+  /* Исправить все элементы с filter */
+  *[style*="filter"] {
+    filter: none !important;
+  }
+  
+  /* Исправить все элементы с opacity */
+  *[style*="opacity"] {
+    opacity: 1 !important;
+  }
+  
+  /* Исправить все элементы с visibility */
+  *[style*="visibility"] {
+    visibility: visible !important;
+  }
+  
+  /* Исправить все элементы с z-index */
+  *[style*="z-index"] {
+    z-index: auto !important;
+  }
+  
+  /* Исправить все элементы с clip */
+  *[style*="clip"] {
+    clip: auto !important;
+  }
+  
+  /* Исправить все элементы с clip-path */
+  *[style*="clip-path"] {
+    clip-path: none !important;
+  }
+  
+  /* Исправить все элементы с mask */
+  *[style*="mask"] {
+    mask: none !important;
+  }
+  
+  /* Исправить все элементы с mask-image */
+  *[style*="mask-image"] {
+    mask-image: none !important;
+  }
+  
+  /* Исправить все элементы с mask-size */
+  *[style*="mask-size"] {
+    mask-size: auto !important;
+  }
+  
+  /* Исправить все элементы с mask-position */
+  *[style*="mask-position"] {
+    mask-position: center !important;
+  }
+  
+  /* Исправить все элементы с mask-repeat */
+  *[style*="mask-repeat"] {
+    mask-repeat: no-repeat !important;
+  }
+  
+  /* Исправить все элементы с mask-clip */
+  *[style*="mask-clip"] {
+    mask-clip: border-box !important;
+  }
+  
+  /* Исправить все элементы с mask-origin */
+  *[style*="mask-origin"] {
+    mask-origin: border-box !important;
+  }
+  
+  /* Исправить все элементы с mask-composite */
+  *[style*="mask-composite"] {
+    mask-composite: add !important;
+  }
+  
+  /* Исправить все элементы с mask-mode */
+  *[style*="mask-mode"] {
+    mask-mode: match-source !important;
+  }
+  
+  /* Исправить все элементы с mask-type */
+  *[style*="mask-type"] {
+    mask-type: luminance !important;
   }
 }
