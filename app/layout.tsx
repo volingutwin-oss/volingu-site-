@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Suspense } from "react"
 import { Montserrat } from "next/font/google"
 import ChatWidget from "@/components/chat-widget"
+import MobileNav from "@/components/mobile-nav"
 import "./globals.css"
 
 const montserrat = Montserrat({
@@ -34,6 +35,7 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
+  viewportFit: "cover",
 }
 
 export default function RootLayout({
@@ -54,6 +56,7 @@ export default function RootLayout({
       </head>
       <body className={`${montserrat.variable} font-sans antialiased`} style={{ paddingTop: '80px' }}>
         <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+        <MobileNav />
         <ChatWidget />
       </body>
     </html>
