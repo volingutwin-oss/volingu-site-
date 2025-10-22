@@ -30,6 +30,11 @@ const nextConfig = {
   output: 'standalone',
   trailingSlash: false,
   
+  // Исправление проблем с ресурсами
+  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
+  generateEtags: false,
+  poweredByHeader: false,
+  
   // Оптимизация сборки
   webpack: (config, { isServer }) => {
     // Оптимизация для клиентской стороны
