@@ -9,3 +9,4 @@ ADMIN_EMAIL=volingutwin@gmail.com
 
 # Домен сайта (для CORS и других настроек)
 NEXT_PUBLIC_SITE_URL=https://yourdomain.ru
+

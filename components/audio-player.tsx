@@ -15,6 +15,8 @@ export function AudioPlayer({ src, title, description, className = "", duration:
   const [duration, setDuration] = useState(0)
   const [volume, setVolume] = useState(1)
   const [isDragging, setIsDragging] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
 
   // Функция для конвертации времени из строки в секунды
@@ -34,12 +36,29 @@ export function AudioPlayer({ src, title, description, className = "", duration:
     }
   }, [volume])
 
-  const togglePlay = () => {
+  const togglePlay = async () => {
+    if (!isLoaded && !isLoading) {
+      setIsLoading(true)
+      // Ленивая загрузка аудио только при первом клике
+      if (audioRef.current) {
+        audioRef.current.load()
+        await new Promise((resolve) => {
+          audioRef.current!.addEventListener('canplaythrough', resolve, { once: true })
+        })
+        setIsLoaded(true)
+        setIsLoading(false)
+      }
+    }
+    
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause()
       } else {
-        audioRef.current.play()
+        try {
+          await audioRef.current.play()
+        } catch (error) {
+          console.warn('Audio play failed:', error)
+        }
       }
       setIsPlaying(!isPlaying)
     }
@@ -105,32 +124,44 @@ export function AudioPlayer({ src, title, description, className = "", duration:
     }}>
       <button
         onClick={togglePlay}
+        disabled={isLoading}
             style={{
               width: '36px',
               height: '36px',
-              background: 'linear-gradient(135deg, #3182ce 0%, #2b6cb0 50%, #2c5282 100%)',
+              background: isLoading 
+                ? 'linear-gradient(135deg, #9ca3af 0%, #6b7280 50%, #4b5563 100%)'
+                : 'linear-gradient(135deg, #3182ce 0%, #2b6cb0 50%, #2c5282 100%)',
               border: 'none',
               borderRadius: '50%',
-              cursor: 'pointer',
+              cursor: isLoading ? 'not-allowed' : 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               transition: 'all 0.3s ease',
               boxShadow: 'none',
-              flexShrink: 0
+              flexShrink: 0,
+              opacity: isLoading ? 0.7 : 1
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'
-              e.currentTarget.style.transform = 'scale(1.05)'
-              e.currentTarget.style.boxShadow = 'none'
+              if (!isLoading) {
+                e.currentTarget.style.background = 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'
+                e.currentTarget.style.transform = 'scale(1.05)'
+                e.currentTarget.style.boxShadow = 'none'
+              }
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'linear-gradient(135deg, #3182ce 0%, #2b6cb0 50%, #2c5282 100%)'
-              e.currentTarget.style.transform = 'scale(1)'
-              e.currentTarget.style.boxShadow = 'none'
+              if (!isLoading) {
+                e.currentTarget.style.background = 'linear-gradient(135deg, #3182ce 0%, #2b6cb0 50%, #2c5282 100%)'
+                e.currentTarget.style.transform = 'scale(1)'
+                e.currentTarget.style.boxShadow = 'none'
+              }
             }}
       >
-        {isPlaying ? (
+        {isLoading ? (
+          <svg width="16" height="16" fill="white" viewBox="0 0 24 24" className="animate-spin">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        ) : isPlaying ? (
           <svg width="16" height="16" fill="white" viewBox="0 0 24 24">
             <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
           </svg>
@@ -228,11 +259,11 @@ export function AudioPlayer({ src, title, description, className = "", duration:
 
       <audio
         ref={audioRef}
-        src={src}
+        src={isLoaded ? src : undefined}
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={() => setIsPlaying(false)}
-        preload="metadata"
+        preload="none"
       />
     </div>
   )

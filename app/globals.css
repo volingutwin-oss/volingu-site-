@@ -217,6 +217,15 @@ div[style*="overflow"] {
   }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 .animate-pulse {
   animation: pulse 2s ease-in-out infinite;
   will-change: transform, opacity;

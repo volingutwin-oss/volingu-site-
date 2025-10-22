@@ -2,6 +2,8 @@
 import { AudioPlayer } from "./audio-player"
 import { FadeIn, SlideInUp } from "./scroll-animations"
 import { useRouter } from "next/navigation"
+import { useState, useEffect } from "react"
+import { AudioLoadingSkeleton } from "./loading-skeleton"
 
 const voiceCases = [
   {
@@ -56,18 +58,40 @@ const voiceCases = [
 
 export function VoiceCasesSection() {
   const router = useRouter()
+  const [isVisible, setIsVisible] = useState(false)
 
   const handleOrderClick = () => {
     router.push('/contact')
   }
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    const element = document.getElementById('voice-cases-section')
+    if (element) {
+      observer.observe(element)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section style={{ 
-      padding: '6rem 1rem', 
+    <section 
+      id="voice-cases-section"
+      style={{ 
+        padding: '6rem 1rem', 
         background: 'linear-gradient(135deg, #667eea 0%, #5a67d8 25%, #3182ce 50%, #2b6cb0 75%, #2c5282 100%)',
-      position: 'relative',
-      overflow: 'hidden'
-    }}>
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
       {/* Декоративные элементы */}
       <div style={{
         position: 'absolute',
@@ -180,13 +204,17 @@ export function VoiceCasesSection() {
                 </p>
                 
                 <div style={{ flex: 1, display: 'flex', alignItems: 'flex-end' }}>
-                  <AudioPlayer
-                    src={voiceCase.audioSrc}
-                    title=""
-                    description=""
-                    className="mb-4"
-                    duration={voiceCase.duration}
-                  />
+                  {isVisible ? (
+                    <AudioPlayer
+                      src={voiceCase.audioSrc}
+                      title=""
+                      description=""
+                      className="mb-4"
+                      duration={voiceCase.duration}
+                    />
+                  ) : (
+                    <AudioLoadingSkeleton />
+                  )}
                 </div>
               </div>
             </SlideInUp>
