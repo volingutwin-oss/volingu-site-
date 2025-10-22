@@ -26,6 +26,10 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   
+  // Настройки для продакшена
+  output: 'standalone',
+  trailingSlash: false,
+  
   // Оптимизация сборки
   webpack: (config, { isServer }) => {
     // Оптимизация для клиентской стороны
